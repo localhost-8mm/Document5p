@@ -1,0 +1,81 @@
+Q: 2) Write a PHP script for the following: Design a form to accept two strings from
+the user. Find whether the small string appears at the start of the large string.
+Provide a text box to accept the string that will replace all occurrences of small
+string present in the large string. Also split the large string into separate words.
+(Use regular expressions)  
+:---
+
+<html>
+	<body>
+		<form action="prog22.php" method="post">
+		Enter string
+		<input type="text" name="str1">
+		<br>
+		<br>
+		Enter second string
+		<input type="text" name="str2">
+		<br>
+		<br>
+		Enter third String
+		<input type="text" name="str3">
+		<br>
+		<br>
+		<br>
+		Find 
+		<input type="radio" name="op" value="F">
+		<br>
+		<br>
+		<br>
+		<br>
+		Occurence
+		<input type="radio" name="op" value="O">
+		<br>
+		<br>
+		<br>
+		Split
+		<input type="radio" name="op" value="S">
+		<br>
+		<br>
+		<br>
+		<input type="submit" value="SEND">
+		<br>
+		<br>
+		<br>
+		<?php
+if(isset($_POST['str1']) || isset($_POST['str2']) || isset($_POST['op']) || isset($_POST['str3']) )
+			{
+				$str1=$_POST['str1'];
+				$str2 = $_POST['str2'];
+				$str3=$_POST['str3'];
+				$op=$_POST['op'];
+				if($op=="F")
+				{
+				if(preg_match("/$str2/",$str1))
+				{
+					echo "found";
+				}
+				else
+				{
+					echo "not found";
+				}
+				}
+				if($op=="O")
+				{
+					
+		 echo preg_replace("/$str2/",$str3,$str1);
+		 
+				}
+				if($op=="S")
+				{
+					$p=preg_split("/ /",$str1);
+					print_r($p);
+				}
+
+			}
+
+		?>
+
+			</form>
+		</body>
+	</html>
+
