@@ -1,0 +1,126 @@
+Q: 1) Write a PHP script for the following: Design a form to accept a string. Write a
+function to count the total number of vowels (a,e,i,o,u) from the string. Show the
+occurrences of each vowel from the string. Check whether the given string is a
+palindrome or not, without using built-in function. (Use radio buttons and the
+concept of function. Use ‘include’ construct or require stmt.)
+
+:---------------------------------------------------------
+  Palidrom
+
+<?php
+function check($str)
+{
+$l=strlen($str)-1;
+$i=0;
+	while($i<$l)
+	{
+		if($str[$i]==$str[$l])
+		{
+	
+		}	
+	else
+		{
+			echo "not palidrom";
+			exit(0);
+
+		}
+		$i++;
+		$l--;
+	}
+		echo "palidrom";
+		
+}
+check($str);
+
+?>
+
+  ----------------------------------------------------------
+Vowels
+
+<html>
+	<body>
+		<form action="prg1.php" method="post">
+		Enter String
+		<input type="text" name="str">
+		<br>
+		<br>
+		Vowel
+		<input type="radio" name="op" value="V">
+		<br>
+		<br>
+		Palidrom
+		<input type="radio" name="op" value="P">
+		<br>
+		<br>
+		<input type="submit" value="SEND">
+		<br>
+		<br>
+		<br>
+			<?php
+if(isset($_POST['str']) || isset($_POST['op']))
+				{
+
+					$str=$_POST['str'];
+					$op=$_POST['op'];
+				if($op == "V")
+				{
+						
+				
+						
+				function vowels($str)
+				{
+					
+					
+					$i=0;
+					
+					while($i<=strlen($str))
+					{
+						
+						
+						if($str[$i]=="a")
+						{
+						  	  $c1=$c1+1;
+						}
+						
+
+						if($str[$i]=="e")
+						{
+							  $c2=$c2+1;
+						}
+						
+						if($str[$i]=="i")
+						{
+							 $c3=$c3+1;
+						}
+						
+						if($str[$i]=="o")
+						{
+							 $c4=$c4+1;
+						}
+						
+						if($str[$i]=="u")
+						{
+							 $c5=$c5+1;
+						}
+						//$l=$l-1;
+						$i=$i+1;
+					
+					}
+					echo "<br>";
+					echo $c1+$c2+$c3+$c4+$c5;
+				}
+			vowels($str);
+				}
+				
+				if($op == "P")
+				{
+					//function palidrom($str)
+					include("palidrom.php");
+				}
+				}
+			?>
+				</form>
+	</body>
+</html>
+
+__________________________________________________________________
