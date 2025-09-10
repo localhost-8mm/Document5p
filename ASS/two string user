@@ -1,0 +1,74 @@
+Q: 2) Write a PHP script for the following: Design a form to accept two strings from
+the user. Find the first occurrence and the last occurrence of the small string in the
+large string. Also count the total number of occurrences of small string in the large
+string. Provide a text box to accept a string, which will replace the small string in the
+large string. (Use built-in functions)
+
+-:--
+<html>
+	<body>
+		<form action="prg2.php" method="post">
+		Enter the string
+		<input type="text" name="str">
+		<br>
+		<br>
+		Enter substring
+		<input type="text" name="s">
+		<br>
+		<br>
+		<br>
+		Enter string Replace
+		<input type="text" name="r">
+		<br>
+		<br>
+		<br>
+		First Occurrence
+		<input type="radio" name="op" value="F">
+		<br>
+		<br>
+		
+		Last Occurrence
+		<input type="radio" name="op" value="L">
+		<br>
+		<br>
+		<br>
+		Replace
+		<input type="radio" name="op" value="R">
+		<br>
+		<br>
+		<br>
+		<input type="submit" value="SEND">
+		<br>
+		<br>
+		<br>
+			<?php
+if(isset($_POST['str']) || isset($_POST['s']) || isset($_POST['r']))
+				{
+					 $str=$_POST['str'];
+					 $s=$_POST['s'];
+					$r=$_POST['r'];
+					$op=$_POST['op'];
+
+				if($op=="F")
+				{
+			echo $c = strpos($str,$s);
+				}
+				if($op=="L")
+				{
+				echo $l = strrpos($str,$s);
+				}
+			if($op=="R")
+				{
+						
+				echo str_replace($s,$r,$str);
+						
+						
+				}
+				}
+			?>
+				</form>
+			</body>
+	</html>
+					
+
+ 
